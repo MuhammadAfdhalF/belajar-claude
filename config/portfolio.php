@@ -33,6 +33,15 @@ return [
         'location' => 'Indonesia', // EDIT ME — set your city if you like
         'status'   => 'Open to new opportunities',
         'focus'    => 'Healthcare system integrations & REST APIs',
+
+        // Short capability chips shown in the hero. "icon" maps to an inline
+        // SVG in the hero section.
+        'highlights' => [
+            ['label' => 'Backend Development',    'icon' => 'code'],
+            ['label' => 'Healthcare Integration', 'icon' => 'heart'],
+            ['label' => 'Production Support',     'icon' => 'shield'],
+            ['label' => 'Database & API',         'icon' => 'database'],
+        ],
     ],
 
     // Navigation anchor links. "url" matches the id of each section.
