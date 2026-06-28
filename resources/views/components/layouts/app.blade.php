@@ -7,9 +7,16 @@
         </x-layouts.app>
 
     Props:
-        $title  Optional page title; appended to the site name.
+        $title        Optional page title; appended to the site name.
+        $description  Optional meta description; defaults to the profile tagline.
 --}}
-@props(['title' => null])
+@props(['title' => null, 'description' => null])
+
+@php
+    $siteName = config('portfolio.profile.name');
+    $pageTitle = ($title ? $title . ' — ' : '') . $siteName;
+    $metaDescription = $description ?? config('portfolio.profile.tagline');
+@endphp
 
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
@@ -17,9 +24,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>
-        {{ $title ? $title . ' — ' : '' }}{{ config('portfolio.profile.name') }}
-    </title>
+    <title>{{ $pageTitle }}</title>
+    <meta name="description" content="{{ $metaDescription }}">
+
+    {{-- Basic Open Graph tags for link previews. --}}
+    <meta property="og:title" content="{{ $pageTitle }}">
+    <meta property="og:description" content="{{ $metaDescription }}">
+    <meta property="og:type" content="website">
 
     {{-- Compiled CSS/JS handled by Vite (resources/css/app.css, resources/js/app.js). --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])

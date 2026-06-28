@@ -6,7 +6,7 @@
 --}}
 <x-ui.section id="certifications" eyebrow="Credentials" title="Certifications" class="bg-slate-50">
     <div class="grid gap-6 sm:grid-cols-2">
-        @foreach ($certifications as $cert)
+        @forelse ($certifications as $cert)
             <x-ui.card class="flex gap-4">
 
                 <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
@@ -34,6 +34,8 @@
                 </div>
 
             </x-ui.card>
-        @endforeach
+        @empty
+            <p class="text-slate-500 sm:col-span-2">No certifications to show yet.</p>
+        @endforelse
     </div>
 </x-ui.section>

@@ -7,7 +7,7 @@
 --}}
 <x-ui.section id="experience" eyebrow="Where I've worked" title="Experience" class="bg-slate-50">
     <div class="space-y-6">
-        @foreach ($experiences as $job)
+        @forelse ($experiences as $job)
             <div class="grid grid-cols-[auto_1fr] gap-x-4">
 
                 {{-- Timeline marker + connector --}}
@@ -39,6 +39,8 @@
                 </div>
 
             </div>
-        @endforeach
+        @empty
+            <p class="text-slate-500">No experience to show yet.</p>
+        @endforelse
     </div>
 </x-ui.section>

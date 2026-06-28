@@ -8,7 +8,7 @@
 <x-ui.section id="skills" eyebrow="What I use" title="Skills"
               description="Technologies and areas I work with day to day.">
     <div class="grid gap-6 sm:grid-cols-2">
-        @foreach ($skillGroups as $category => $skills)
+        @forelse ($skillGroups as $category => $skills)
             <x-ui.card>
                 <h3 class="text-sm font-semibold uppercase tracking-wide text-slate-900">
                     {{ $category }}
@@ -19,6 +19,8 @@
                     @endforeach
                 </div>
             </x-ui.card>
-        @endforeach
+        @empty
+            <p class="text-slate-500 sm:col-span-2">No skills to show yet.</p>
+        @endforelse
     </div>
 </x-ui.section>

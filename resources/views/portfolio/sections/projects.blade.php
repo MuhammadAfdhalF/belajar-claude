@@ -7,7 +7,7 @@
 <x-ui.section id="projects" eyebrow="Selected work" title="Projects"
               description="A few things I've built and supported.">
     <div class="grid gap-6 sm:grid-cols-2">
-        @foreach ($projects as $project)
+        @forelse ($projects as $project)
             <x-ui.card class="flex flex-col">
 
                 <div class="flex items-start justify-between gap-3">
@@ -53,6 +53,8 @@
                 </div>
 
             </x-ui.card>
-        @endforeach
+        @empty
+            <p class="text-slate-500 sm:col-span-2">No projects to show yet.</p>
+        @endforelse
     </div>
 </x-ui.section>
