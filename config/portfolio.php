@@ -31,6 +31,8 @@ return [
                     . 'integrations including SATUSEHAT and BPJS bridging, plus QA and '
                     . 'testing to keep releases stable.',
         'location' => 'Indonesia', // EDIT ME — set your city if you like
+        'status'   => 'Open to new opportunities',
+        'focus'    => 'Healthcare system integrations & REST APIs',
     ],
 
     // Navigation anchor links. "url" matches the id of each section.

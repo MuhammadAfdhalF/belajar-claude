@@ -1,31 +1,44 @@
 {{--
     Experience section.
 
-    Lists professional history from the database ($experiences, passed by
-    PortfolioController) as cards. Dates are Carbon instances (date cast) or
-    null; "is_current" shows "Present" as the end date.
+    Professional history from the database ($experiences) rendered as a
+    vertical timeline. Dates are Carbon (date cast) or null; "is_current"
+    shows "Present" as the end date.
 --}}
-<x-ui.section id="experience" eyebrow="Where I've worked" title="Experience">
-    <div class="space-y-5">
+<x-ui.section id="experience" eyebrow="Where I've worked" title="Experience" class="bg-slate-50">
+    <div class="space-y-6">
         @foreach ($experiences as $job)
-            <x-ui.card>
-                <div class="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
-                    <h3 class="text-lg font-semibold text-gray-900">
-                        {{ $job->position }}
-                        <span class="font-normal text-gray-500">· {{ $job->company }}</span>
-                    </h3>
-                    <p class="text-sm font-medium text-gray-500">
-                        {{ $job->start_date?->format('Y') }}
-                        – {{ $job->is_current ? 'Present' : $job->end_date?->format('Y') }}
-                    </p>
+            <div class="grid grid-cols-[auto_1fr] gap-x-4">
+
+                {{-- Timeline marker + connector --}}
+                <div class="flex flex-col items-center">
+                    <span class="mt-1.5 h-3 w-3 shrink-0 rounded-full bg-blue-600 ring-4 ring-blue-50"></span>
+                    @unless ($loop->last)
+                        <span class="mt-1 w-px flex-1 bg-slate-200"></span>
+                    @endunless
                 </div>
 
-                @if ($job->summary)
-                    <p class="mt-3 text-gray-600">
-                        {{ $job->summary }}
+                {{-- Entry --}}
+                <div class="pb-2">
+                    <h3 class="text-lg font-semibold text-slate-900">
+                        {{ $job->position }}
+                        <span class="font-normal text-slate-500">· {{ $job->company }}</span>
+                    </h3>
+                    <p class="mt-1 text-sm font-medium text-amber-600">
+                        {{ $job->start_date?->format('Y') }}
+                        – {{ $job->is_current ? 'Present' : $job->end_date?->format('Y') }}
+                        @if ($job->location)
+                            <span class="text-slate-400">· {{ $job->location }}</span>
+                        @endif
                     </p>
-                @endif
-            </x-ui.card>
+                    @if ($job->summary)
+                        <p class="mt-3 max-w-2xl text-slate-600">
+                            {{ $job->summary }}
+                        </p>
+                    @endif
+                </div>
+
+            </div>
         @endforeach
     </div>
 </x-ui.section>
