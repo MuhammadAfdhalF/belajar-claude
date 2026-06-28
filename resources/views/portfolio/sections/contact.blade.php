@@ -71,7 +71,7 @@
                             <div>
                                 <label for="name" class="block text-sm font-medium text-slate-900">Name</label>
                                 <input id="name" name="name" type="text" value="{{ old('name') }}"
-                                       class="mt-1 block w-full rounded-lg border border-slate-200 px-3 py-2 text-slate-900 shadow-sm transition focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30">
+                                       class="mt-1 block w-full rounded-lg border border-slate-200 px-3 py-2.5 text-slate-900 shadow-sm transition focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30">
                                 @error('name')
                                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                                 @enderror
@@ -80,7 +80,7 @@
                             <div>
                                 <label for="email" class="block text-sm font-medium text-slate-900">Email</label>
                                 <input id="email" name="email" type="email" value="{{ old('email') }}"
-                                       class="mt-1 block w-full rounded-lg border border-slate-200 px-3 py-2 text-slate-900 shadow-sm transition focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30">
+                                       class="mt-1 block w-full rounded-lg border border-slate-200 px-3 py-2.5 text-slate-900 shadow-sm transition focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30">
                                 @error('email')
                                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                                 @enderror
@@ -92,7 +92,7 @@
                                 Subject <span class="font-normal text-slate-400">(optional)</span>
                             </label>
                             <input id="subject" name="subject" type="text" value="{{ old('subject') }}"
-                                   class="mt-1 block w-full rounded-lg border border-slate-200 px-3 py-2 text-slate-900 shadow-sm transition focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30">
+                                   class="mt-1 block w-full rounded-lg border border-slate-200 px-3 py-2.5 text-slate-900 shadow-sm transition focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30">
                             @error('subject')
                                 <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                             @enderror
@@ -101,7 +101,7 @@
                         <div>
                             <label for="message" class="block text-sm font-medium text-slate-900">Message</label>
                             <textarea id="message" name="message" rows="5"
-                                      class="mt-1 block w-full rounded-lg border border-slate-200 px-3 py-2 text-slate-900 shadow-sm transition focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30">{{ old('message') }}</textarea>
+                                      class="mt-1 block w-full rounded-lg border border-slate-200 px-3 py-2.5 text-slate-900 shadow-sm transition focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30">{{ old('message') }}</textarea>
                             @error('message')
                                 <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                             @enderror

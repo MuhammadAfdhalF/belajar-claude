@@ -10,13 +10,13 @@
         <div class="flex items-center justify-between">
 
             {{-- Brand --}}
-            <a href="/" class="flex items-center gap-2.5">
-                <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-blue-600 to-blue-800 text-white shadow-sm">
+            <a href="/" class="flex min-w-0 items-center gap-2.5">
+                <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-blue-600 to-blue-800 text-white shadow-sm">
                     <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M8 9l-3 3 3 3m8-6l3 3-3 3M14 5l-4 14" />
                     </svg>
                 </span>
-                <span class="text-lg font-semibold tracking-tight text-slate-900">
+                <span class="truncate text-lg font-semibold tracking-tight text-slate-900">
                     {{ config('portfolio.profile.name') }}
                 </span>
             </a>
