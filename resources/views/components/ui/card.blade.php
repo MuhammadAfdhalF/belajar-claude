@@ -15,7 +15,7 @@
         <x-ui.card class="flex flex-col gap-4"> ... </x-ui.card>
 --}}
 <div {{ $attributes->merge([
-    'class' => 'rounded-xl border border-gray-200 bg-white p-6 '
+    'class' => 'rounded-xl border border-slate-200 bg-white p-6 shadow-sm '
              . 'transition hover:-translate-y-0.5 hover:shadow-md',
 ]) }}>
     {{ $slot }}

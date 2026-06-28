@@ -32,19 +32,19 @@
         @if ($eyebrow || $title || $description)
             <div class="mb-12 max-w-2xl">
                 @if ($eyebrow)
-                    <p class="text-sm font-semibold uppercase tracking-wide text-indigo-600">
+                    <p class="text-sm font-semibold uppercase tracking-wide text-amber-600">
                         {{ $eyebrow }}
                     </p>
                 @endif
 
                 @if ($title)
-                    <h2 class="mt-2 text-3xl font-bold tracking-tight text-gray-900">
+                    <h2 class="mt-2 text-3xl font-bold tracking-tight text-slate-900">
                         {{ $title }}
                     </h2>
                 @endif
 
                 @if ($description)
-                    <p class="mt-4 text-gray-600">
+                    <p class="mt-4 text-slate-600">
                         {{ $description }}
                     </p>
                 @endif

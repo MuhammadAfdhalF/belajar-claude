@@ -24,13 +24,13 @@
     // Shared base styles for every variant.
     $base = 'inline-flex items-center justify-center rounded-lg px-5 py-2.5 '
           . 'text-sm font-semibold transition focus:outline-none '
-          . 'focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2';
+          . 'focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2';
 
     // Per-variant styles.
     $variants = [
-        'primary'   => 'bg-indigo-600 text-white hover:bg-indigo-700',
-        'secondary' => 'bg-gray-100 text-gray-900 hover:bg-gray-200',
-        'ghost'     => 'text-gray-700 hover:bg-gray-100',
+        'primary'   => 'bg-blue-600 text-white shadow-sm hover:bg-blue-700',
+        'secondary' => 'bg-slate-100 text-slate-900 hover:bg-slate-200',
+        'ghost'     => 'text-slate-700 hover:bg-slate-100',
     ];
 
     $classes = $base . ' ' . ($variants[$variant] ?? $variants['primary']);

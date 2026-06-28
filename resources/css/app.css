@@ -9,8 +9,11 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 
-    /* Brand accent (indigo-600). Use via the generated `brand` color utilities. */
-    --color-brand: #4f46e5;
+    /* Primary brand color (blue-600). Use via the generated `brand` utilities. */
+    --color-brand: #2563eb;
+
+    /* Accent color (amber-500) for sparing gold highlights. */
+    --color-accent: #f59e0b;
 }
 
 /* Minimal global base styles. Prefer Tailwind utilities in Blade over adding here. */
@@ -21,6 +24,8 @@
 
     body {
         font-family: var(--font-sans);
+        background-color: #fff;
+        color: var(--color-slate-900);
     }
 
     ::selection {
