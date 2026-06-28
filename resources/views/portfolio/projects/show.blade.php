@@ -1,7 +1,7 @@
 {{--
-    Project detail page (route: projects.show) — premium case-study layout.
+    Project detail page (route: projects.show) — editorial case study.
 
-    Dark header + light body. $project is passed by PortfolioController@show.
+    Olive header + cream body. $project is passed by PortfolioController@show.
 --}}
 @php
     $arrowLeft = 'M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18';
@@ -11,39 +11,34 @@
 
 <x-layouts.app title="{{ $project->title }}" description="{{ $project->summary }}">
 
-    {{-- Dark header --}}
-    <section class="relative overflow-hidden bg-slate-950">
-        <div class="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950"></div>
-        <div class="absolute -top-24 -left-20 h-72 w-72 rounded-full bg-blue-500/20 blur-3xl"></div>
-        <div class="absolute -bottom-24 -right-12 h-72 w-72 rounded-full bg-amber-500/10 blur-3xl"></div>
-
-        <div class="relative mx-auto max-w-5xl px-6 py-20">
+    {{-- Olive header --}}
+    <section class="bg-olive-dark">
+        <div class="mx-auto max-w-5xl px-6 py-16 md:py-20">
             <a href="{{ url('/#projects') }}"
-               class="inline-flex items-center gap-1.5 text-sm font-medium text-slate-300 transition hover:text-white">
+               class="inline-flex items-center gap-1.5 text-sm font-medium text-cream/70 transition hover:text-cream">
                 <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="{{ $arrowLeft }}" />
                 </svg>
                 Back to projects
             </a>
 
-            @if ($project->is_featured)
-                <span class="mt-6 inline-flex items-center gap-1 rounded-full border border-amber-400/30 bg-amber-400/10 px-3 py-1 text-xs font-medium text-amber-300">
-                    ★ Featured
-                </span>
-            @endif
+            <p class="mt-8 inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.2em] text-gold">
+                <span class="h-px w-8 bg-gold"></span>
+                Project@if ($project->is_featured) · Featured @endif
+            </p>
 
-            <h1 class="mt-4 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+            <h1 class="mt-4 font-display text-4xl font-semibold tracking-tight text-cream sm:text-6xl">
                 {{ $project->title }}
             </h1>
 
-            <p class="mt-4 max-w-2xl text-lg text-slate-300">
+            <p class="mt-4 max-w-2xl text-lg text-cream/70">
                 {{ $project->summary }}
             </p>
 
             @if (!empty($project->tech_stack))
                 <div class="mt-6 flex flex-wrap gap-2">
                     @foreach ($project->tech_stack as $tech)
-                        <span class="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-slate-200 ring-1 ring-white/10">
+                        <span class="inline-flex items-center rounded-full border border-cream/15 bg-cream/5 px-3 py-1 text-xs font-medium text-cream/80">
                             {{ $tech }}
                         </span>
                     @endforeach
@@ -52,32 +47,32 @@
         </div>
     </section>
 
-    {{-- Light body --}}
+    {{-- Cream body --}}
     <x-ui.section>
         <div class="grid gap-8 md:grid-cols-3">
 
-            {{-- Description --}}
+            {{-- Overview --}}
             <div class="md:col-span-2">
                 @if ($project->description)
                     <x-ui.card>
-                        <h2 class="text-sm font-semibold uppercase tracking-wide text-amber-600">Overview</h2>
-                        <div class="mt-4 whitespace-pre-line leading-relaxed text-slate-700">
+                        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-gold-dark">Overview</p>
+                        <div class="mt-4 whitespace-pre-line leading-relaxed text-forest/80">
                             {{ $project->description }}
                         </div>
                     </x-ui.card>
                 @else
-                    <p class="text-slate-500">No further description for this project yet.</p>
+                    <p class="text-forest/60">No further description for this project yet.</p>
                 @endif
             </div>
 
             {{-- Links aside --}}
             <aside>
                 <x-ui.card class="h-fit">
-                    <h2 class="text-sm font-semibold uppercase tracking-wide text-slate-900">Links</h2>
+                    <p class="text-xs font-semibold uppercase tracking-[0.2em] text-gold-dark">Links</p>
                     <div class="mt-4 flex flex-col gap-2">
                         @if ($project->demo_url)
                             <x-ui.button href="{{ $project->demo_url }}" class="w-full">
-                                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="{{ $external }}" />
                                 </svg>
                                 View demo
@@ -85,14 +80,14 @@
                         @endif
                         @if ($project->repository_url)
                             <x-ui.button href="{{ $project->repository_url }}" variant="outline" class="w-full">
-                                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="{{ $codeIcon }}" />
                                 </svg>
                                 View code
                             </x-ui.button>
                         @endif
                         @if (!$project->demo_url && !$project->repository_url)
-                            <p class="text-sm text-slate-500">No external links for this project.</p>
+                            <p class="text-sm text-forest/60">No external links for this project.</p>
                         @endif
                     </div>
                 </x-ui.card>

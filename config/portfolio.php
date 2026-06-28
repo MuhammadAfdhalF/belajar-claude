@@ -62,6 +62,16 @@ return [
         ['label' => 'Contact',        'url' => '#contact'],
     ],
 
+    // Static "Work Process" steps shown on the homepage (visual only, no DB).
+    'process' => [
+        ['title' => 'Understand',  'desc' => 'Clarify the problem, requirements, and constraints before writing any code.'],
+        ['title' => 'Design Flow', 'desc' => 'Map the data flow, endpoints, and screens into a clear, workable plan.'],
+        ['title' => 'Build',       'desc' => 'Develop maintainable features with Laravel or Yii2 and clean structure.'],
+        ['title' => 'Integrate',   'desc' => 'Connect REST APIs and external systems such as SATUSEHAT and BPJS.'],
+        ['title' => 'Validate',    'desc' => 'Test behavior and edge cases with a QA mindset to keep releases stable.'],
+        ['title' => 'Deliver',     'desc' => 'Ship, monitor, and provide reliable production support after release.'],
+    ],
+
     // Grouped technical skills.
     'skills' => [
         ['category' => 'Backend & Frameworks', 'items' => ['PHP', 'Laravel', 'Yii2']],
