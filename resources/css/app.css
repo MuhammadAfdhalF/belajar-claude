@@ -6,45 +6,50 @@
 @source '../**/*.js';
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    /* Typography — clean sans for body/UI, elegant serif for display headings. */
+    --font-sans: 'Manrope', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+    --font-display: 'Cormorant Garamond', ui-serif, Georgia, 'Times New Roman', serif;
 
-    /* Primary brand color (blue-600) and a darker shade for gradients/hovers. */
-    --color-brand: #2563eb;
-    --color-brand-dark: #1d4ed8;
-
-    /* Accent color (amber-500) for sparing gold highlights. */
-    --color-accent: #f59e0b;
+    /* Editorial Tech Atelier palette. */
+    --color-cream: #f4ebdd;       /* base background  */
+    --color-beige: #e7dcc7;       /* warm surface     */
+    --color-card: #fbf7ef;        /* soft cream card  */
+    --color-olive: #7a8062;       /* olive sage       */
+    --color-olive-dark: #39422d;  /* dark olive panel */
+    --color-forest: #263524;      /* forest text      */
+    --color-gold: #b8944d;        /* muted gold       */
+    --color-gold-dark: #8a6a2f;   /* readable gold    */
+    --color-edge: #d6c8ad;        /* soft border      */
+    --color-charcoal: #1f2933;    /* charcoal text    */
 }
 
 /* Minimal global base styles. Prefer Tailwind utilities in Blade over adding here. */
 @layer base {
     html {
         scroll-behavior: smooth;
-        /* Offset anchored sections so they aren't hidden under the sticky navbar. */
         scroll-padding-top: 5rem;
     }
 
     body {
         font-family: var(--font-sans);
-        background-color: #fff;
-        color: var(--color-slate-900);
+        background-color: var(--color-cream);
+        color: var(--color-forest);
     }
 
     ::selection {
-        background-color: var(--color-brand);
+        background-color: var(--color-gold);
         color: #fff;
     }
 
     /* Consistent, accessible keyboard focus for links (buttons use their own ring). */
     a:focus-visible {
-        outline: 2px solid var(--color-brand);
+        outline: 2px solid var(--color-gold);
         outline-offset: 2px;
         border-radius: 0.25rem;
     }
 }
 
-/* Respect users who prefer reduced motion: neutralize animation/transitions. */
+/* Respect users who prefer reduced motion. */
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -53,6 +58,28 @@
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
+    }
+}
+
+/* Animated editorial underline for navigation links. */
+@layer components {
+    .nav-link {
+        position: relative;
+    }
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -0.3rem;
+        height: 1px;
+        width: 100%;
+        background-color: var(--color-gold);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+    }
+    .nav-link:hover::after {
+        transform: scaleX(1);
     }
 }
 
@@ -68,15 +95,6 @@
     }
 }
 
-/* Custom utilities (registered so hover:/etc. variants work). */
 @utility animate-fade-up {
     animation: fade-up 0.6s ease-out both;
-}
-
-@utility shadow-glow {
-    box-shadow: 0 10px 30px -10px rgb(37 99 235 / 0.45);
-}
-
-@utility shadow-glow-amber {
-    box-shadow: 0 10px 30px -10px rgb(245 158 11 / 0.45);
 }

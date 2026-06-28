@@ -1,13 +1,8 @@
 {{--
-    Reusable button / link.
+    Reusable button / link (Editorial Tech Atelier).
 
-    Renders an <a> when an "href" is given, otherwise a <button>. Variants keep
-    calls-to-action consistent, with tasteful hover motion.
-
-    Usage:
-        <x-ui.button href="#contact">Hire me</x-ui.button>
-        <x-ui.button href="..." variant="outline">View project</x-ui.button>
-        <x-ui.button variant="link">Read more</x-ui.button>
+    Renders an <a> when an "href" is given, otherwise a <button>. Elegant
+    variants with subtle hover lift; pair with a group + arrow icon for motion.
 
     Props:
         $href     Optional URL. If present the component is a link, else a button.
@@ -21,18 +16,16 @@
 ])
 
 @php
-    // Shared base styles (padding lives in each variant for full control).
-    $base = 'inline-flex items-center justify-center gap-2 rounded-lg text-sm font-semibold '
+    $base = 'inline-flex items-center justify-center gap-2 rounded-md text-sm font-semibold '
           . 'transition-all duration-200 focus:outline-none focus-visible:ring-2 '
-          . 'focus-visible:ring-blue-500 focus-visible:ring-offset-2';
+          . 'focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-cream';
 
-    // Per-variant styles.
     $variants = [
-        'primary'   => 'px-5 py-2.5 bg-blue-600 text-white shadow-sm hover:bg-blue-700 hover:-translate-y-0.5 hover:shadow-glow active:translate-y-0',
-        'secondary' => 'px-5 py-2.5 bg-slate-100 text-slate-900 hover:bg-slate-200 hover:-translate-y-0.5',
-        'outline'   => 'px-5 py-2.5 border border-slate-300 text-slate-800 hover:border-blue-400 hover:text-blue-700 hover:-translate-y-0.5',
-        'ghost'     => 'px-5 py-2.5 text-slate-700 hover:bg-slate-100',
-        'link'      => 'text-blue-600 underline-offset-4 hover:text-blue-700 hover:underline',
+        'primary'   => 'px-5 py-2.5 bg-olive-dark text-cream hover:-translate-y-0.5 hover:bg-forest',
+        'secondary' => 'px-5 py-2.5 border border-edge bg-transparent text-forest hover:-translate-y-0.5 hover:border-olive hover:bg-card',
+        'outline'   => 'px-5 py-2.5 border border-forest/30 text-forest hover:-translate-y-0.5 hover:border-forest',
+        'ghost'     => 'px-5 py-2.5 text-forest hover:bg-beige',
+        'link'      => 'text-gold-dark underline-offset-4 hover:underline',
     ];
 
     $classes = $base . ' ' . ($variants[$variant] ?? $variants['primary']);

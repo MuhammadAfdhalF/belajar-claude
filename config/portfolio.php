@@ -42,6 +42,14 @@ return [
             ['label' => 'Production Support',     'icon' => 'shield'],
             ['label' => 'Database & API',         'icon' => 'database'],
         ],
+
+        // Non-numeric focus-area stats shown in the hero strip (no invented metrics).
+        'stats' => [
+            ['label' => 'Laravel & Yii2',       'icon' => 'code'],
+            ['label' => 'REST API Integration', 'icon' => 'api'],
+            ['label' => 'Healthcare Systems',   'icon' => 'health'],
+            ['label' => 'Database Support',     'icon' => 'database'],
+        ],
     ],
 
     // Navigation anchor links. "url" matches the id of each section.

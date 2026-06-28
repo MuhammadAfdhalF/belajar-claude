@@ -1,10 +1,5 @@
 {{--
-    Master layout shell for the portfolio site.
-
-    Usage:
-        <x-layouts.app title="Home">
-            ... page content ...
-        </x-layouts.app>
+    Master layout shell for the portfolio site (Editorial Tech Atelier).
 
     Props:
         $title        Optional page title; appended to the site name.
@@ -32,10 +27,15 @@
     <meta property="og:description" content="{{ $metaDescription }}">
     <meta property="og:type" content="website">
 
+    {{-- Fonts: Cormorant Garamond (display) + Manrope (body). Fallbacks in app.css. --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     {{-- Compiled CSS/JS handled by Vite (resources/css/app.css, resources/js/app.js). --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="min-h-screen bg-white text-gray-900 antialiased">
+<body class="min-h-screen bg-cream font-sans text-forest antialiased">
 
     @include('partials.navbar')
 
