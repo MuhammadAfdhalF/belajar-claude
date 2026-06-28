@@ -1,7 +1,6 @@
 <?php
 
+use App\Http\Controllers\PortfolioController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('portfolio.home');
-});
+Route::get('/', [PortfolioController::class, 'home']);
