@@ -1,30 +1,42 @@
 {{--
     Top navigation bar.
 
-    Brand name and links are pulled from config/portfolio.php so there is a
-    single place to edit them. Anchor links point to section ids on the
-    homepage. The mobile menu is driven by resources/js/modules/navigation.js
-    via the data-nav-* attributes below.
+    Sticky, translucent, and modern. Brand mark + links come from
+    config/portfolio.php. The mobile menu is driven by
+    resources/js/modules/navigation.js via the data-nav-* attributes.
 --}}
-<header class="border-b border-slate-200 bg-white">
-    <nav class="mx-auto max-w-5xl px-6 py-4">
+<header class="sticky top-0 z-40 border-b border-slate-200/70 bg-white/80 backdrop-blur-md">
+    <nav class="mx-auto max-w-5xl px-6 py-3">
         <div class="flex items-center justify-between">
 
             {{-- Brand --}}
-            <a href="/" class="text-lg font-semibold tracking-tight text-slate-900">
-                {{ config('portfolio.profile.name') }}
+            <a href="/" class="flex items-center gap-2.5">
+                <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-blue-600 to-blue-800 text-white shadow-sm">
+                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M8 9l-3 3 3 3m8-6l3 3-3 3M14 5l-4 14" />
+                    </svg>
+                </span>
+                <span class="text-lg font-semibold tracking-tight text-slate-900">
+                    {{ config('portfolio.profile.name') }}
+                </span>
             </a>
 
-            {{-- Desktop links --}}
-            <ul class="hidden gap-6 text-sm font-medium text-slate-600 sm:flex">
-                @foreach (config('portfolio.navigation') as $item)
-                    <li>
-                        <a href="{{ $item['url'] }}" class="transition hover:text-blue-600">
-                            {{ $item['label'] }}
-                        </a>
-                    </li>
-                @endforeach
-            </ul>
+            {{-- Desktop nav --}}
+            <div class="hidden items-center gap-8 sm:flex">
+                <ul class="flex gap-6 text-sm font-medium text-slate-600">
+                    @foreach (config('portfolio.navigation') as $item)
+                        <li>
+                            <a href="{{ $item['url'] }}" class="transition hover:text-blue-600">
+                                {{ $item['label'] }}
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
+                <a href="#contact"
+                   class="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-blue-700 hover:shadow-glow">
+                    Get in touch
+                </a>
+            </div>
 
             {{-- Mobile toggle --}}
             <button type="button"

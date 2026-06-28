@@ -1,22 +1,17 @@
 {{--
     Reusable card shell.
 
-    A consistent surface used for project tiles, certification tiles, and
-    experience items. Provides border, background, padding, rounded corners,
-    and a subtle hover effect. Content goes in the slot.
+    A premium surface used for project tiles, certification tiles, experience
+    items, and more. Soft border, layered shadow, and a subtle hover lift.
+    The "group" class lets child elements react to card hover.
 
     Usage:
-        <x-ui.card>
-            <h3 class="font-semibold">Project title</h3>
-            <p class="text-gray-600">Description...</p>
-        </x-ui.card>
-
-    Extra classes can be passed and will be merged with the defaults:
+        <x-ui.card> ... </x-ui.card>
         <x-ui.card class="flex flex-col gap-4"> ... </x-ui.card>
 --}}
 <div {{ $attributes->merge([
-    'class' => 'rounded-xl border border-slate-200 bg-white p-6 shadow-sm '
-             . 'transition hover:-translate-y-0.5 hover:shadow-md',
+    'class' => 'group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm '
+             . 'transition-all duration-300 hover:-translate-y-1 hover:border-slate-300 hover:shadow-xl',
 ]) }}>
     {{ $slot }}
 </div>

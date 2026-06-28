@@ -9,8 +9,9 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 
-    /* Primary brand color (blue-600). Use via the generated `brand` utilities. */
+    /* Primary brand color (blue-600) and a darker shade for gradients/hovers. */
     --color-brand: #2563eb;
+    --color-brand-dark: #1d4ed8;
 
     /* Accent color (amber-500) for sparing gold highlights. */
     --color-accent: #f59e0b;
@@ -20,6 +21,8 @@
 @layer base {
     html {
         scroll-behavior: smooth;
+        /* Offset anchored sections so they aren't hidden under the sticky navbar. */
+        scroll-padding-top: 5rem;
     }
 
     body {
@@ -32,4 +35,41 @@
         background-color: var(--color-brand);
         color: #fff;
     }
+}
+
+/* Respect users who prefer reduced motion: neutralize animation/transitions. */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Subtle entrance animation. */
+@keyframes fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Custom utilities (registered so hover:/etc. variants work). */
+@utility animate-fade-up {
+    animation: fade-up 0.6s ease-out both;
+}
+
+@utility shadow-glow {
+    box-shadow: 0 10px 30px -10px rgb(37 99 235 / 0.45);
+}
+
+@utility shadow-glow-amber {
+    box-shadow: 0 10px 30px -10px rgb(245 158 11 / 0.45);
 }
