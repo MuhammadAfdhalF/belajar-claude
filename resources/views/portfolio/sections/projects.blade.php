@@ -11,7 +11,10 @@
         @foreach ($projects as $project)
             <x-ui.card class="flex flex-col">
                 <h3 class="text-lg font-semibold text-gray-900">
-                    {{ $project->title }}
+                    <a href="{{ route('projects.show', $project->slug) }}"
+                       class="transition hover:text-indigo-600">
+                        {{ $project->title }}
+                    </a>
                 </h3>
 
                 <p class="mt-2 flex-grow text-gray-600">
@@ -27,6 +30,9 @@
                 @endif
 
                 <div class="mt-5 flex flex-wrap gap-2">
+                    <x-ui.button href="{{ route('projects.show', $project->slug) }}">
+                        Details
+                    </x-ui.button>
                     @if ($project->demo_url)
                         <x-ui.button href="{{ $project->demo_url }}" variant="secondary">
                             View

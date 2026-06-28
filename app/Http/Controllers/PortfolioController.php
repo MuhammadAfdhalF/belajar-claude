@@ -37,4 +37,15 @@ class PortfolioController extends Controller
             'skillGroups',
         ));
     }
+
+    /**
+     * Show a single project's detail page, looked up by slug.
+     * Returns a 404 response if no matching project exists.
+     */
+    public function show(string $slug)
+    {
+        $project = Project::where('slug', $slug)->firstOrFail();
+
+        return view('portfolio.projects.show', compact('project'));
+    }
 }
