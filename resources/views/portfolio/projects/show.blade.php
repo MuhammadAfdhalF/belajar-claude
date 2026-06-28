@@ -24,7 +24,8 @@
 
             <p class="mt-8 inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.2em] text-gold">
                 <span class="h-px w-8 bg-gold"></span>
-                Project@if ($project->is_featured) · Featured @endif
+                Project
+                @if ($project->is_featured) · Featured @endif
             </p>
 
             <h1 class="mt-4 font-display text-4xl font-semibold tracking-tight text-cream sm:text-6xl">

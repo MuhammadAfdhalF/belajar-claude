@@ -14,7 +14,7 @@
     $fallbackIcon = 'M8 9l-3 3 3 3m8-6l3 3-3 3M14 5l-4 14';
 @endphp
 
-<x-ui.section id="skills" eyebrow="What I use" title="Tools &amp; Technologies"
+<x-ui.section id="skills" eyebrow="What I use" title="Tools & Technologies"
               description="The stack and areas I work with day to day." class="bg-beige">
     <div class="grid gap-6 sm:grid-cols-2">
         @forelse ($skillGroups as $category => $skills)
